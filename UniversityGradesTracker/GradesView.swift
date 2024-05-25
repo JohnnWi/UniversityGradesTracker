@@ -87,7 +87,7 @@ struct GradeCard: View {
                     Text(grade.subjectName)
                         .font(.title2) // Aumenta la dimensione del nome della materia
                         .bold()
-                        .foregroundColor(.black)
+                        .foregroundColor(.blue)
                     Text("Data: \(grade.date, formatter: dateFormatter)")
                         .foregroundColor(.gray)
                     if !grade.professor.isEmpty {

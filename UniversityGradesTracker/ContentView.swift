@@ -17,6 +17,13 @@ struct ContentView: View {
         return validCredits > 0 ? Double(totalWeightedGrades) / Double(validCredits) : 0.0
     }
     
+    var arithmeticAverage: Double {
+        let validGrades = viewModel.grades.filter { $0.grade > 0 }
+        let totalGrades = validGrades.reduce(0) { $0 + $1.grade }
+        let count = validGrades.count
+        return count > 0 ? Double(totalGrades) / Double(count) : 0.0
+    }
+
     var graduationGrade: Double {
         (weightedAverage * 11) / 3
     }
@@ -63,6 +70,13 @@ struct HomeView: View {
         return validCredits > 0 ? Double(totalWeightedGrades) / Double(validCredits) : 0.0
     }
     
+    var arithmeticAverage: Double {
+        let validGrades = viewModel.grades.filter { $0.grade > 0 }
+        let totalGrades = validGrades.reduce(0) { $0 + $1.grade }
+        let count = validGrades.count
+        return count > 0 ? Double(totalGrades) / Double(count) : 0.0
+    }
+
     var graduationGrade: Double {
         (weightedAverage * 11) / 3
     }
@@ -74,9 +88,9 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing: 10) { // Spazio tra gli elementi principali ridotto
+                VStack(spacing: 10) {
                     HStack {
-                        Text("Traccia Voti")
+                        Text("Voti")
                             .font(.largeTitle)
                             .bold()
                             .padding(.leading)
@@ -89,8 +103,16 @@ struct HomeView: View {
                         }
                     }
 
-                    VStack(spacing: 5) { // Spazio tra le card ridotto ulteriormente
-                        InfoCard(title: "Media Ponderata", value: String(format: "%.2f", weightedAverage), color: .blue, icon: "chart.bar.fill")
+                    CombinedInfoCard(
+                        leftTitle: "Media Ponderata",
+                        leftValue: String(format: "%.2f", weightedAverage),
+                        rightTitle: "Media Aritmetica",
+                        rightValue: String(format: "%.2f", arithmeticAverage),
+                        color: .blue
+                    )
+                    .padding(.horizontal)
+
+                    VStack(spacing: 5) {
                         InfoCard(title: "CFU Totali", value: "\(totalCredits)/180 CFU", color: .green, icon: "graduationcap.fill", progress: progress)
                         InfoCard(title: "Voto di Laurea Previsione", value: String(format: "%.2f", graduationGrade), color: .purple, icon: "star.fill")
                     }
@@ -106,6 +128,56 @@ struct HomeView: View {
                 }
             }
             .navigationTitle("")
+        }
+    }
+}
+
+struct CombinedInfoCard: View {
+    var leftTitle: String
+    var leftValue: String
+    var rightTitle: String
+    var rightValue: String
+    var color: Color
+    
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .fill(color.opacity(0.1))
+                .frame(height: 100)
+                .shadow(color: color.opacity(0.2), radius: 5, x: 0, y: 5)
+
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(leftTitle)
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                    Text(leftValue)
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundColor(.primary)
+                }
+                .padding(.leading, 10)
+
+                Spacer()
+
+                Divider()
+                    .frame(height: 60)
+                    .padding(.horizontal, 10)
+                
+                VStack(alignment: .leading) {
+                    Text(rightTitle)
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                    Text(rightValue)
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundColor(.primary)
+                }
+                .padding(.trailing, 10)
+
+                Spacer()
+            }
+            .padding(.vertical, 10)
         }
     }
 }
@@ -128,22 +200,22 @@ struct InfoCard: View {
                 Image(systemName: icon)
                     .foregroundColor(color)
                     .font(.largeTitle)
-                    .padding(.leading, 10) // Riduce il padding a sinistra
+                    .padding(.leading, 10)
                 
                 VStack(alignment: .leading) {
                     Text(title)
                         .font(.headline)
-                        .foregroundColor(color)
+                        .foregroundColor(.primary)
                     Text(value)
                         .font(.largeTitle)
                         .bold()
-                        .foregroundColor(color)
+                        .foregroundColor(.primary)
                     if let progress = progress {
                         ProgressView(value: progress)
                             .progressViewStyle(LinearProgressViewStyle(tint: color))
                     }
                 }
-                .padding(.leading, 5) // Riduce il padding a sinistra
+                .padding(.leading, 5)
                 
                 Spacer()
             }
@@ -171,3 +243,4 @@ struct ChartCard<Content: View>: View {
         .frame(height: 300)
     }
 }
+
