@@ -28,23 +28,7 @@ struct GradesView: View {
                 .padding(.vertical)
                 .navigationTitle("Materie")
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        NavigationLink(destination: AddGradeView()) {
-                            Image(systemName: "plus.circle")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                        }
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        if isEditing {
-                            Button(action: {
-                                showDeleteAlert = true
-                            }) {
-                                Image(systemName: "trash")
-                            }
-                        }
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button(action: {
                             isEditing.toggle()
                             if !isEditing {
@@ -52,6 +36,21 @@ struct GradesView: View {
                             }
                         }) {
                             Text(isEditing ? "Done" : "Edit")
+                        }
+                        
+                        NavigationLink(destination: AddGradeView()) {
+                            Image(systemName: "plus.circle")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        if isEditing {
+                            Button(action: {
+                                showDeleteAlert = true
+                            }) {
+                                Image(systemName: "trash")
+                            }
                         }
                     }
                 }

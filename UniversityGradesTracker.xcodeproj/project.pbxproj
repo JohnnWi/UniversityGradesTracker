@@ -20,6 +20,7 @@
 		AA83CD712C025D2F00F4B096 /* GradesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA83CD702C025D2F00F4B096 /* GradesView.swift */; };
 		AA83CD732C02620D00F4B096 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA83CD722C02620D00F4B096 /* Utils.swift */; };
 		AA83CD752C026B9000F4B096 /* AddGradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA83CD742C026B9000F4B096 /* AddGradeView.swift */; };
+		AA83CD772C026F4800F4B096 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA83CD762C026F4800F4B096 /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		AA83CD702C025D2F00F4B096 /* GradesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesView.swift; sourceTree = "<group>"; };
 		AA83CD722C02620D00F4B096 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		AA83CD742C026B9000F4B096 /* AddGradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGradeView.swift; sourceTree = "<group>"; };
+		AA83CD762C026F4800F4B096 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				AA83CD702C025D2F00F4B096 /* GradesView.swift */,
 				AA83CD722C02620D00F4B096 /* Utils.swift */,
 				AA83CD742C026B9000F4B096 /* AddGradeView.swift */,
+				AA83CD762C026F4800F4B096 /* SettingView.swift */,
 			);
 			path = UniversityGradesTracker;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				AA83CD422C02547B00F4B096 /* ContentView.swift in Sources */,
 				AA83CD6B2C0255D300F4B096 /* GradeModel.swift in Sources */,
 				AA83CD712C025D2F00F4B096 /* GradesView.swift in Sources */,
+				AA83CD772C026F4800F4B096 /* SettingView.swift in Sources */,
 				AA83CD732C02620D00F4B096 /* Utils.swift in Sources */,
 				AA83CD752C026B9000F4B096 /* AddGradeView.swift in Sources */,
 				AA83CD6F2C025BF900F4B096 /* GradeDetailView.swift in Sources */,

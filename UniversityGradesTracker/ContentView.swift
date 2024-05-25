@@ -4,7 +4,54 @@ import Foundation
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: GradesViewModel
+    @AppStorage("isDarkMode") private var isDarkMode = false
 
+    var totalCredits: Int {
+        viewModel.grades.reduce(0) { $0 + $1.credits }
+    }
+    
+    var weightedAverage: Double {
+        let validGrades = viewModel.grades.filter { $0.grade > 0 }
+        let totalWeightedGrades = validGrades.reduce(0) { $0 + ($1.grade * $1.credits) }
+        let validCredits = validGrades.reduce(0) { $0 + $1.credits }
+        return validCredits > 0 ? Double(totalWeightedGrades) / Double(validCredits) : 0.0
+    }
+    
+    var graduationGrade: Double {
+        (weightedAverage * 11) / 3
+    }
+    
+    var progress: Double {
+        return Double(totalCredits) / 180.0
+    }
+    
+    var body: some View {
+        TabView {
+            HomeView()
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
+
+            GradesView()
+                .tabItem {
+                    Image(systemName: "book.fill")
+                    Text("Materie")
+                }
+
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "gearshape.fill")
+                    Text("Impostazioni")
+                }
+        }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
+    }
+}
+
+struct HomeView: View {
+    @EnvironmentObject var viewModel: GradesViewModel
+    
     var totalCredits: Int {
         viewModel.grades.reduce(0) { $0 + $1.credits }
     }
@@ -27,7 +74,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing: 20) {
+                VStack(spacing: 10) { // Spazio tra gli elementi principali ridotto
                     HStack {
                         Text("Traccia Voti")
                             .font(.largeTitle)
@@ -42,7 +89,7 @@ struct ContentView: View {
                         }
                     }
 
-                    VStack(spacing: 20) {
+                    VStack(spacing: 5) { // Spazio tra le card ridotto ulteriormente
                         InfoCard(title: "Media Ponderata", value: String(format: "%.2f", weightedAverage), color: .blue, icon: "chart.bar.fill")
                         InfoCard(title: "CFU Totali", value: "\(totalCredits)/180 CFU", color: .green, icon: "graduationcap.fill", progress: progress)
                         InfoCard(title: "Voto di Laurea Previsione", value: String(format: "%.2f", graduationGrade), color: .purple, icon: "star.fill")
@@ -59,18 +106,6 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("")
-            .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    NavigationLink(destination: GradesView()) {
-                        Text("Materie")
-                            .font(.title2)
-                            .padding()
-                            .background(Color.green)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                }
-            }
         }
     }
 }
@@ -93,7 +128,7 @@ struct InfoCard: View {
                 Image(systemName: icon)
                     .foregroundColor(color)
                     .font(.largeTitle)
-                    .padding(.leading, 20)
+                    .padding(.leading, 10) // Riduce il padding a sinistra
                 
                 VStack(alignment: .leading) {
                     Text(title)
@@ -108,11 +143,11 @@ struct InfoCard: View {
                             .progressViewStyle(LinearProgressViewStyle(tint: color))
                     }
                 }
-                .padding(.leading, 10)
+                .padding(.leading, 5) // Riduce il padding a sinistra
                 
                 Spacer()
             }
-            .padding()
+            .padding(.vertical, 10)
         }
     }
 }
