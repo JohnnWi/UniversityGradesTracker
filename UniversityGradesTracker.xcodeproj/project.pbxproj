@@ -14,6 +14,12 @@
 		AA83CD522C02547C00F4B096 /* UniversityGradesTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA83CD512C02547C00F4B096 /* UniversityGradesTrackerTests.swift */; };
 		AA83CD5C2C02547C00F4B096 /* UniversityGradesTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA83CD5B2C02547C00F4B096 /* UniversityGradesTrackerUITests.swift */; };
 		AA83CD5E2C02547C00F4B096 /* UniversityGradesTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA83CD5D2C02547C00F4B096 /* UniversityGradesTrackerUITestsLaunchTests.swift */; };
+		AA83CD6B2C0255D300F4B096 /* GradeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA83CD6A2C0255D300F4B096 /* GradeModel.swift */; };
+		AA83CD6D2C025B6400F4B096 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA83CD6C2C025B6400F4B096 /* ChartView.swift */; };
+		AA83CD6F2C025BF900F4B096 /* GradeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA83CD6E2C025BF900F4B096 /* GradeDetailView.swift */; };
+		AA83CD712C025D2F00F4B096 /* GradesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA83CD702C025D2F00F4B096 /* GradesView.swift */; };
+		AA83CD732C02620D00F4B096 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA83CD722C02620D00F4B096 /* Utils.swift */; };
+		AA83CD752C026B9000F4B096 /* AddGradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA83CD742C026B9000F4B096 /* AddGradeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,12 @@
 		AA83CD572C02547C00F4B096 /* UniversityGradesTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniversityGradesTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA83CD5B2C02547C00F4B096 /* UniversityGradesTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityGradesTrackerUITests.swift; sourceTree = "<group>"; };
 		AA83CD5D2C02547C00F4B096 /* UniversityGradesTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityGradesTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AA83CD6A2C0255D300F4B096 /* GradeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeModel.swift; sourceTree = "<group>"; };
+		AA83CD6C2C025B6400F4B096 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		AA83CD6E2C025BF900F4B096 /* GradeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeDetailView.swift; sourceTree = "<group>"; };
+		AA83CD702C025D2F00F4B096 /* GradesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesView.swift; sourceTree = "<group>"; };
+		AA83CD722C02620D00F4B096 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		AA83CD742C026B9000F4B096 /* AddGradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGradeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +112,12 @@
 				AA83CD432C02547C00F4B096 /* Assets.xcassets */,
 				AA83CD452C02547C00F4B096 /* UniversityGradesTracker.entitlements */,
 				AA83CD462C02547C00F4B096 /* Preview Content */,
+				AA83CD6A2C0255D300F4B096 /* GradeModel.swift */,
+				AA83CD6C2C025B6400F4B096 /* ChartView.swift */,
+				AA83CD6E2C025BF900F4B096 /* GradeDetailView.swift */,
+				AA83CD702C025D2F00F4B096 /* GradesView.swift */,
+				AA83CD722C02620D00F4B096 /* Utils.swift */,
+				AA83CD742C026B9000F4B096 /* AddGradeView.swift */,
 			);
 			path = UniversityGradesTracker;
 			sourceTree = "<group>";
@@ -260,7 +278,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA83CD422C02547B00F4B096 /* ContentView.swift in Sources */,
+				AA83CD6B2C0255D300F4B096 /* GradeModel.swift in Sources */,
+				AA83CD712C025D2F00F4B096 /* GradesView.swift in Sources */,
+				AA83CD732C02620D00F4B096 /* Utils.swift in Sources */,
+				AA83CD752C026B9000F4B096 /* AddGradeView.swift in Sources */,
+				AA83CD6F2C025BF900F4B096 /* GradeDetailView.swift in Sources */,
 				AA83CD402C02547B00F4B096 /* UniversityGradesTrackerApp.swift in Sources */,
+				AA83CD6D2C025B6400F4B096 /* ChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
